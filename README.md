@@ -1,10 +1,4 @@
-# chrisg/shell
-
-This package was extracted from the monorepo (shell) preserving history.
-
-Requires:
-- chrisg/fw (^1.0)
-- chrisg/htmlload-skeleton (^1.0)
+# cryodrift/shell
 
 # Shell - Command Line Utilities
 

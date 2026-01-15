@@ -1,22 +1,16 @@
 {
     "name": "cryodrift/shell",
-    "description": "Shell command execution helpers.",
+    "description": "Shell - Command Line Utilities",
     "type": "library",
-    "license": "Apache-2.0",
-    "version": "0.1.1",
+    "license": "MIT",
+    "version": "0.1.2",
     "require": {
         "php": ">=8.4",
         "cryodrift/fw": "^0.1.0"
     },
-    "authors": [
-        {
-            "name": "chrisg"
-        }
-    ],
     "autoload": {
         "psr-4": {
-            "cryodrift\\shell\\": "",
-            "src\\shell\\": ""
+            "cryodrift\\shell\\": ""
         }
     }
 }
