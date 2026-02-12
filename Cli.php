@@ -58,7 +58,6 @@ class Cli implements Handler
                 sort($lines);
                 $out = trim(implode(PHP_EOL, $lines));
             }
-
         }
         return $out;
     }
@@ -204,13 +203,6 @@ class Cli implements Handler
         return $out;
     }
 
-    function prepareShellWindows(array $parts): string
-    {
-        return implode(' ', array_map(function ($p) {
-            return '"' . str_replace('"', '\\"', $p) . '"';
-        }, $parts));
-    }
-
     /**
      * @cli capture html of a url
      *
@@ -262,6 +254,18 @@ class Cli implements Handler
         }
 
         $out['end'] = Core::time();
+        return $out;
+    }
+
+    /**
+     * @cli Jsonstring to Arraystring
+     */
+    protected function json(ParamFile $in, string $outfile = ''): array
+    {
+        $out = Core::jsonRead($in->value);
+        if ($outfile) {
+            Core::fileWrite($outfile, Core::toLog($out));
+        }
         return $out;
     }
 
@@ -327,6 +331,13 @@ class Cli implements Handler
                 yield $token;
             }
         }
+    }
+
+    private function prepareShellWindows(array $parts): string
+    {
+        return implode(' ', array_map(function ($p) {
+            return '"' . str_replace('"', '\\"', $p) . '"';
+        }, $parts));
     }
 
 }
